@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import logo from '/logo-by-tegar.png';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Slid from './components/Carousel';
 import Footer from './components/Footer';
-import tahu from '/tahu.png';
-import bakso from '/bakso.png';
+import Order from './components/Order';
 import pakeNanya from '/pake-nanya.jpeg';
+import About from './pages/about';
 import { useState } from 'react';
 
 
@@ -24,6 +24,12 @@ export default function App() {
   return (
 
     <>
+
+      <Router>
+        <Routes>
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </Router>
 
       <div className="lg:w-11/12 lg:m-auto">
         <Navbar />
@@ -75,84 +81,9 @@ export default function App() {
           </p>
           </div>
 
-          {/* order now */}
-          <p className="font-bold text-lg lg:text-xl py-4 px-2 mt-5 text-dark pb-2">
-            Ayok tunggu apa lagi, buruan order sekarang 👇👇👇
-          </p>
-          <div className="w-full flex lg:justify-between lg:flex-row border lg:border-r-2 lg:w-full">
-            <div className="px-3 py-3 bg-slate-200 hover:bg-gray-300">
-              <div className="w-4/5 m-auto border-2 border-black px-2 py-2 rounded-lg hover:bg-slate-200">
-                <img src={tahu} alt="" />
-              </div>
-              <div className="w-4/5 m-auto">
-              <p className="font-semibold text-lg text-primary hover:bg-slate-200">
-                  Rp 3.000
-                </p>
-              <p className="font-semibold text-lg hover:bg-slate-200">
-                  Tahu kaget
-                </p>
-              </div>
-                
-              <div className=" m-auto w-4/5">
-                <div className="flex items-center">
-                  <button className="font-bold text-lg lg:text-xl p-1 pr-3" onClick={() => setCount2((count) => count2 - 1)}>
-                    -
-                  </button>
-                    <p className="font-bold text-lg text-primary lg:text-xl">
-                    {count2} Pcs
-                    </p>
-                  <button className="font-bold text-lg lg:text-xl ml-1 p-1 px-3" onClick={() => setCount2((count) => count2 + 1)}>
-                    +
-                  </button>
-                </div>
-                <div className="px-2 py-2 bg-sky-400 w-20 rounded-md hover:bg-sky-300 lg:m-auto">
-                  <a href="https://wa.me/+6285161310017" className="font-bold text-lg lg:text-xl">
-                    <p className="text-center">
-                      Beli
-                    </p>
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <div className="px-3 py-3 bg-slate-200 hover:bg-gray-300">
-              <div className="w-4/5 m-auto border-2 border-black px-2 py-2 rounded-lg hover:bg-slate-200">
-                <img src={bakso} alt="" />
-              </div>
-              <div className="w-4/5 m-auto">
-              <p className="font-semibold text-lg text-primary hover:bg-slate-200">
-                  Rp 5.000
-                </p>
-              <p className="font-semibold text-lg hover:bg-slate-200">
-                  Bakso Buled
-                </p>
-              </div>
-                
-              <div className="m-auto w-4/5">
-                <div className="flex items-center">
-                <button className="font-bold text-lg lg:text-xl p-1 pr-3" onClick={() => setCount((count) => count - 1)}>
-                   -
-                </button>
-                  <p className="font-bold text-lg text-primary lg:text-xl">
-                  {count} Pcs
-                  </p>
-                <button className="font-bold text-lg lg:text-xl ml-1 p-1 px-3" onClick={() => setCount((count) => count + 1)}>
-                   +
-                </button>
-                </div>
-                <div className="mt-2 px-2 py-2 bg-sky-400 w-20 rounded-md hover:bg-sky-300 lg:m-auto">
-                  <a href="https://wa.me/+6285161310017" className="font-bold text-lg lg:text-xl">
-                    <p className="text-center">
-                      Beli
-                    </p>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
         </div>
+
+        <Order />
 
           {/* pertanyaan */}
           <div className=" mt-10 mx-2">
